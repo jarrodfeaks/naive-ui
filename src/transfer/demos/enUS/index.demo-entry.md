@@ -35,9 +35,11 @@ render-source-list.vue
 | source-filterable | `boolean` | `false` | The source filterable state. | 2.32.2 |
 | source-filter-placeholder | `string` | `undefined` | Placeholder for the source items search box. | 2.32.0 |
 | source-title | `string` | `'undefined'` | Source items title. | 2.32.0 |
+| source-total-items-text | `string` | `undefined` | Text of the source header total items count. | NEXT_VERSION |
 | target-filterable | `boolean` | `false` | The target filterable state. | 2.32.2 |
 | target-filter-placeholder | `string` | `undefined` | Placeholder for the target items search box. | 2.32.0 |
 | target-title | `string` | `undefined` | Target items title. | 2.32.0 |
+| target-selected-items-text | `string` | `undefined` | Text of the target header selected items count. | NEXT_VERSION |
 | value | `Array<string \| number> \| null` | `undefined` | Value when being set manually. | 2.32.0 |
 | on-update:value | `(value: Array<string \| number>) => void` | `undefined` | Callback when the value changes. | 2.32.0 |
 | virtual-scroll | `boolean` | `false` | Enable virtual scrolling. | 2.32.0 |
