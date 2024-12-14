@@ -58,6 +58,8 @@ export const transferProps = {
   sourceTitle: [String, Function] as PropType<string | (() => VNodeChild)>,
   selectAllText: String,
   clearText: String,
+  sourceTotalItemsText: String,
+  targetSelectedItemsText: String,
   targetTitle: [String, Function] as PropType<string | (() => VNodeChild)>,
   filterable: {
     type: Boolean,
@@ -314,6 +316,7 @@ export default defineComponent({
             source
             selectAllText={this.selectAllText}
             clearText={this.clearText}
+            sourceTotalItemsText={this.sourceTotalItemsText}
             title={this.sourceTitle}
             onCheckedAll={this.handleSourceCheckAll}
             onClearAll={this.handleSourceUncheckAll}
@@ -360,6 +363,7 @@ export default defineComponent({
           class={`${mergedClsPrefix}-transfer-list ${mergedClsPrefix}-transfer-list--target`}
         >
           <NTransferHeader
+            targetSelectedItemsText={this.targetSelectedItemsText}
             onClearAll={this.handleTargetClearAll}
             size={this.mergedSize}
             title={this.targetTitle}

@@ -12,6 +12,8 @@ export default defineComponent({
     },
     selectAllText: String,
     clearText: String,
+    sourceTotalItemsText: String,
+    targetSelectedItemsText: String,
     source: Boolean,
     onCheckedAll: Function as PropType<() => void>,
     onClearAll: Function as PropType<() => void>,
@@ -30,8 +32,15 @@ export default defineComponent({
     } = inject(transferInjectionKey)!
     const { localeRef } = useLocale('Transfer')
     return () => {
-      const { source, onClearAll, onCheckedAll, selectAllText, clearText }
-        = props
+      const {
+        source,
+        onClearAll,
+        onCheckedAll,
+        selectAllText,
+        clearText,
+        sourceTotalItemsText,
+        targetSelectedItemsText
+      } = props
       const { value: mergedTheme } = mergedThemeRef
       const { value: mergedClsPrefix } = mergedClsPrefixRef
       const { value: locale } = localeRef
@@ -79,8 +88,8 @@ export default defineComponent({
           )}
           <div class={`${mergedClsPrefix}-transfer-list-header__extra`}>
             {source
-              ? locale.total(srcOptionsLengthRef.value)
-              : locale.selected(targetOptionsRef.value.length)}
+              ? sourceTotalItemsText || locale.total(srcOptionsLengthRef.value)
+              : targetSelectedItemsText || locale.selected(targetOptionsRef.value.length)}
           </div>
         </div>
       )
