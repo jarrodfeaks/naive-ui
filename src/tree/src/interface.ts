@@ -135,6 +135,7 @@ export interface TreeInjection {
   checkOnClickRef: Ref<boolean | CheckOnClick>
   disabledFieldRef: Ref<string>
   showLineRef: Ref<boolean>
+  disableSwitcherRef: Ref<boolean>
   overrideDefaultNodeClickBehaviorRef: Ref<
     TreeOverrideNodeClickBehavior | undefined
   >

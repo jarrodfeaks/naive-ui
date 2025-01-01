@@ -290,6 +290,7 @@ export const treeProps = {
     default: true
   },
   getChildren: Function as PropType<GetChildren>,
+  disableSwitcher: Boolean,
   onDragenter: [Function, Array] as PropType<
     MaybeArray<(e: TreeDragInfo) => void>
   >,
@@ -1613,6 +1614,7 @@ export default defineComponent({
       renderSwitcherIconRef: toRef(props, 'renderSwitcherIcon'),
       labelFieldRef: toRef(props, 'labelField'),
       multipleRef: toRef(props, 'multiple'),
+      disableSwitcherRef: toRef(props, 'disableSwitcher'),
       overrideDefaultNodeClickBehaviorRef: toRef(
         props,
         'overrideDefaultNodeClickBehavior'

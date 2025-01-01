@@ -47,6 +47,7 @@ const TreeNode = defineComponent({
       disabledFieldRef,
       showLineRef,
       renderSwitcherIconRef,
+      disableSwitcherRef,
       overrideDefaultNodeClickBehaviorRef
     } = NTree
 
@@ -377,6 +378,7 @@ const TreeNode = defineComponent({
       indent: indentRef,
       checkboxPlacement: checkboxPlacementRef,
       showLine: showLineRef,
+      disableSwitcher: disableSwitcherRef,
       contentInstRef,
       contentElRef,
       indentNodes,
@@ -410,7 +412,8 @@ const TreeNode = defineComponent({
       pending,
       internalScrollable,
       nodeProps,
-      checkboxPlacement
+      checkboxPlacement,
+      disableSwitcher
     } = this
     // drag start not inside
     // it need to be append to node itself, not wrapper
@@ -480,7 +483,7 @@ const TreeNode = defineComponent({
             >
               <div style={{ width: `${indent}px` }} />
             </div>
-          ) : (
+          ) : !disableSwitcher ? (
             <NTreeNodeSwitcher
               clsPrefix={clsPrefix}
               expanded={this.expanded}
@@ -491,7 +494,7 @@ const TreeNode = defineComponent({
               indent={indent}
               onClick={this.handleSwitcherClick}
             />
-          )}
+          ) : null}
           {!checkboxOnRight ? checkboxNode : null}
           <NTreeNodeContent
             ref="contentInstRef"
