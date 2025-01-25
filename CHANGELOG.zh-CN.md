@@ -1,10 +1,29 @@
 # CHANGELOG
 
-## 2.40.4
+## 2.41.0
+
+`2025-01-05`
+
+### Breaking Changes
+
+- （需要 Vue 3.3+）为所有的组件增加插槽的类型标注
+
+### i18n
+
+- 添加 kmKH 国际化
+- 添加 ugCN 国际化
+
+### Features
+
+- `n-modal` 新增 `draggable` 属性，关闭 [#6525](https://github.com/tusen-ai/naive-ui/issues/6525)、[#5792](https://github.com/tusen-ai/naive-ui/issues/5792)、[#5711](https://github.com/tusen-ai/naive-ui/issues/5711)、[#5501](https://github.com/tusen-ai/naive-ui/issues/5501)、[#2152](https://github.com/tusen-ai/naive-ui/issues/2152)
+- `useDialog` 支持 `draggable` 参数
+- `useModal` 支持 `draggable` 参数
 
 ### Fixes
 
 - 修复 `n-data-table` 在使用树形数据的时候出现多个展开 icon
+- 修复 `n-date-picker` 的 `confirm`、`now`、`clear` 插槽对 `'month'`、`'monthrange'`、`'quarter'`、`'quarterrange'`、`'year'` 和 `'yearrange'` 类型不生效
+- 修复 `n-input` 的 `render-count` 属性在类型非 `'textarea'` 时不生效
 
 ## 2.40.4
 
@@ -1933,7 +1952,7 @@
 ### Feats
 
 - `n-divider` 的 CSS 变量使用 `n` 作为前缀
-- `typography` 的 CSS 变量使用 `n` 作为前缀
+- `n-typography` 的 CSS 变量使用 `n` 作为前缀
 - `n-badge` 的 CSS 变量使用 `n` 作为前缀
 
 ## 2.22.0
@@ -2938,7 +2957,7 @@
 ### Fixes
 
 - 修复 `n-date-picker` `n-provider` 传递 `date-locale` 属性无效，关闭 [#250](https://github.com/tusen-ai/naive-ui/issues/250)
-- Fix `n-input` clear button placeholder prevent clicking on actual component [#288](https://github.com/tusen-ai/naive-ui/issues/288)
+- 修复 `n-input` clear button placeholder prevent clicking on actual component [#288](https://github.com/tusen-ai/naive-ui/issues/288)
 - 修复 `n-carousel` 点击当前页对应的控制按钮时，组件显示异常
 - 修复 `n-menu` 折叠时 `render-label` 对于 tooltip 不生效
 - 修复 `n-dropdown` 不能在选项中渲染 `n-popover`
