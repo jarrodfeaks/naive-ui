@@ -76,6 +76,7 @@ export const popoverBodyProps = {
   headerStyle: [Object, String] as PropType<CSSProperties | string>,
   footerClass: String,
   footerStyle: [Object, String] as PropType<CSSProperties | string>,
+  onAfterLeave: Function as PropType<() => void>,
   // private
   internalDeactivateImmediately: Boolean,
   animated: Boolean,
@@ -497,6 +498,7 @@ export default defineComponent({
                 }}
                 onAfterLeave={() => {
                   this.internalOnAfterLeave?.()
+                  this.displayed && this.onAfterLeave?.()
                   this.followerEnabled = false
                   this.displayed = false
                 }}

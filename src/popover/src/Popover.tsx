@@ -186,6 +186,7 @@ export const popoverBaseProps = {
   onUpdateShow: [Function, Array] as PropType<
     MaybeArray<(value: boolean) => void>
   >,
+  onAfterLeave: Function as PropType<() => void>,
   // internal
   internalDeactivateImmediately: Boolean,
   internalSyncTargetWithParent: Boolean,
