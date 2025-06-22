@@ -1,14 +1,14 @@
 {
-  "name": "naive-ui",
-  "version": "2.42.0",
+  "name": "@jarrodfeaks/naive-ui",
+  "version": "2.42.0-patch.0",
   "packageManager": "pnpm@9.5.0",
-  "description": "A Vue 3 Component Library. Fairly Complete, Theme Customizable, Uses TypeScript, Fast",
-  "author": "07akioni",
+  "description": "Fork of Naive UI with some small additions",
+  "author": "jarrodfeaks",
   "license": "MIT",
   "homepage": "https://www.naiveui.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tusen-ai/naive-ui"
+    "url": "https://github.com/jarrodfeaks/naive-ui"
   },
   "keywords": [
     "naive-ui",
