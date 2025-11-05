@@ -1,5 +1,6 @@
 export default {
   padding: '4px 0',
+  optionSuffixPadding: '0 8px',
   optionIconSizeSmall: '14px',
   optionIconSizeMedium: '16px',
   optionIconSizeLarge: '16px',

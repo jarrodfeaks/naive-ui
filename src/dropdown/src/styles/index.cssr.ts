@@ -5,6 +5,7 @@ import { c, cB, cE, cM, cNotM } from '../../../_utils/cssr'
 // --n-bezier
 // --n-font-size
 // --n-padding
+// --n-option-suffix-padding
 // --n-border-radius
 // --n-option-height
 // --n-option-prefix-width
@@ -145,7 +146,7 @@ export default cB('dropdown-menu', `
         justify-content: flex-end;
         align-items: center;
         min-width: var(--n-option-suffix-width);
-        padding: 0 8px;
+        padding: var(--n-option-suffix-padding);
         transition: color .3s var(--n-bezier);
         color: var(--n-suffix-color);
         z-index: 1;
