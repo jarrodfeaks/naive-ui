@@ -1,6 +1,8 @@
+import type { CSSProperties, InputHTMLAttributes, PropType } from 'vue'
 import type { ThemeProps } from '../../_mixins'
 import type { ExtractPublicPropTypes, MaybeArray } from '../../_utils'
 import type { ImageGroupProps } from '../../image'
+import type { UploadTheme } from '../styles'
 import type {
   CreateThumbnailUrl,
   CustomRequest,
@@ -31,21 +33,24 @@ import { createId } from 'seemly'
 import { useMergedState } from 'vooks'
 import {
   computed,
-  type CSSProperties,
   defineComponent,
   Fragment,
   h,
-  type InputHTMLAttributes,
   nextTick,
-  type PropType,
   provide,
   ref,
   Teleport,
   toRef
 } from 'vue'
-import { useConfig, useFormItem, useTheme, useThemeClass } from '../../_mixins'
+import {
+  useConfig,
+  useFormItem,
+  useRtl,
+  useTheme,
+  useThemeClass
+} from '../../_mixins'
 import { call, throwError, warn } from '../../_utils'
-import { uploadLight, type UploadTheme } from '../styles'
+import { uploadLight } from '../styles'
 import { uploadInjectionKey } from './interface'
 import style from './styles/index.cssr'
 import { uploadDraggerKey } from './UploadDragger'
@@ -404,7 +409,8 @@ export default defineComponent({
         'when the list-type is image-card, abstract is not supported.'
       )
     }
-    const { mergedClsPrefixRef, inlineThemeDisabled } = useConfig(props)
+    const { mergedClsPrefixRef, inlineThemeDisabled, mergedRtlRef }
+      = useConfig(props)
     const themeRef = useTheme(
       'Upload',
       '-upload',
@@ -413,6 +419,9 @@ export default defineComponent({
       props,
       mergedClsPrefixRef
     )
+
+    const rtlEnabledRef = useRtl('Upload', mergedRtlRef, mergedClsPrefixRef)
+
     const formItem = useFormItem(props)
     const uncontrolledFileListRef = ref(props.defaultFileList)
     const controlledFileListRef = toRef(props, 'fileList')
@@ -746,6 +755,7 @@ export default defineComponent({
     return {
       mergedClsPrefix: mergedClsPrefixRef,
       draggerInsideRef,
+      rtlEnabled: rtlEnabledRef,
       inputElRef,
       mergedTheme: themeRef,
       dragOver: dragOverRef,
@@ -796,6 +806,7 @@ export default defineComponent({
       <div
         class={[
           `${mergedClsPrefix}-upload`,
+          this.rtlEnabled && `${mergedClsPrefix}-upload--rtl`,
           draggerInsideRef.value && `${mergedClsPrefix}-upload--dragger-inside`,
           this.dragOver && `${mergedClsPrefix}-upload--drag-over`,
           this.themeClass

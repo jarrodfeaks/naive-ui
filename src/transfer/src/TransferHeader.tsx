@@ -1,4 +1,5 @@
-import { defineComponent, h, inject, type PropType, type VNodeChild } from 'vue'
+import type { PropType, VNodeChild } from 'vue'
+import { defineComponent, h, inject } from 'vue'
 import { useLocale } from '../../_mixins'
 import { NButton } from '../../button'
 import { transferInjectionKey } from './interface'
@@ -89,7 +90,8 @@ export default defineComponent({
           <div class={`${mergedClsPrefix}-transfer-list-header__extra`}>
             {source
               ? sourceTotalItemsText || locale.total(srcOptionsLengthRef.value)
-              : targetSelectedItemsText || locale.selected(targetOptionsRef.value.length)}
+              : targetSelectedItemsText
+                || locale.selected(targetOptionsRef.value.length)}
           </div>
         </div>
       )
