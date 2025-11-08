@@ -151,7 +151,7 @@ export default cB('dropdown-menu', `
         color: var(--n-suffix-color);
         z-index: 1;
       `, [
-        cM('has-submenu', `
+        cM('has-suffix', `
           width: var(--n-option-icon-suffix-width);
         `),
         cB('icon', `

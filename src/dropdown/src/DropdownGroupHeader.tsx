@@ -16,7 +16,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const { showIconRef, hasSubmenuRef } = inject(dropdownMenuInjectionKey)!
+    const { showIconRef, showSuffixRef } = inject(dropdownMenuInjectionKey)!
 
     const { renderLabelRef, labelFieldRef, nodePropsRef, renderOptionRef }
       = inject(dropdownInjectionKey)!
@@ -24,7 +24,7 @@ export default defineComponent({
     return {
       labelField: labelFieldRef,
       showIcon: showIconRef,
-      hasSubmenu: hasSubmenuRef,
+      showSuffix: showSuffixRef,
       renderLabel: renderLabelRef,
       nodeProps: nodePropsRef,
       renderOption: renderOptionRef
@@ -33,7 +33,7 @@ export default defineComponent({
   render() {
     const {
       clsPrefix,
-      hasSubmenu,
+      showSuffix,
       showIcon,
       nodeProps,
       renderLabel,
@@ -68,11 +68,13 @@ export default defineComponent({
           <div
             class={[
               `${clsPrefix}-dropdown-option-body__suffix`,
-              hasSubmenu
-              && `${clsPrefix}-dropdown-option-body__suffix--has-submenu`
+              showSuffix
+              && `${clsPrefix}-dropdown-option-body__suffix--has-suffix`
             ]}
             data-dropdown-option
-          />
+          >
+            {render(rawNode.suffixIcon)}
+          </div>
         </div>
       </div>
     )

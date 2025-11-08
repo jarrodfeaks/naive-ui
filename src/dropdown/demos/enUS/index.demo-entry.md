@@ -50,6 +50,7 @@ For other props, for example `placement`, please see [Popover Props](popover#Pop
 | children? | `Array<DropdownOption \| DropdownDividerOption \| DropdownGroupOption>` | Child options. |  |
 | disabled? | `boolean` | Whether to disable the option. |  |
 | icon? | `() => VNodeChild` | Custom render function of an option icon. |  |
+| suffix-icon? | `() => VNodeChild` | Custom render function of an option suffix icon. If the option is a cascade option, this replaces the chevron icon. |  |
 | key? | `string \| number` | Option ID (should be unique). |  |
 | label? | `string \| () => VNodeChild` | Displayed label value. |  |
 | props? | `HTMLAttributes` | Customize option props. |  |
@@ -69,6 +70,7 @@ For other props, for example `placement`, please see [Popover Props](popover#Pop
 | --- | --- | --- | --- |
 | children? | `Array<DropdownOption \| DropdownDividerOption>` | Children options of DropdownGroupOption. |  |
 | icon? | `() => VNodeChild` | Custom rendering function of the group icon. |  |
+| suffix-icon? | `() => VNodeChild` | Custom render function of a group header suffix icon. |  |
 | label? | `string` | Group label value. |  |
 | key? | `string \| number` | Group ID (should be unique). |  |
 | show? | `boolean` | Whether to show the option. | 2.33.3 |

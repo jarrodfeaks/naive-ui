@@ -1,5 +1,5 @@
 import type { TreeNode } from 'treemate'
-import type { HTMLAttributes, VNode, VNodeChild } from 'vue'
+import type { HTMLAttributes, RenderFunction, VNode, VNodeChild } from 'vue'
 import type {
   MenuDividerOption,
   MenuGroupOption,
@@ -12,8 +12,10 @@ import type {
 export type Key = string | number
 
 // Aligned with MenuOption props, has some redundant fields
-export type DropdownOption = MenuOption
-export type DropdownGroupOption = MenuGroupOption
+export type DropdownOption = MenuOption & { suffixIcon?: RenderFunction }
+export type DropdownGroupOption = MenuGroupOption & {
+  suffixIcon?: RenderFunction
+}
 export type DropdownDividerOption = MenuDividerOption
 export type DropdownRenderOption = MenuRenderOption
 export type DropdownMixedOption

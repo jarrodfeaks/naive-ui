@@ -127,6 +127,9 @@ export default defineComponent({
     const parentEnteringSubmenuRef = computed(() => {
       return !!NDropdownOption?.enteringSubmenuRef.value
     })
+    const hasSuffixRef = computed(() => {
+      return !!props.tmNode.rawNode.suffixIcon
+    })
     const enteringSubmenuRef = ref(false)
     provide(dropdownOptionInjectionKey, {
       enteringSubmenuRef
@@ -191,7 +194,7 @@ export default defineComponent({
       renderLabel: renderLabelRef,
       renderIcon: renderIconRef,
       siblingHasIcon: NDropdownMenu.showIconRef,
-      siblingHasSubmenu: NDropdownMenu.hasSubmenuRef,
+      siblingHasSuffix: NDropdownMenu.showSuffixRef,
       menuProps: menuPropsRef,
       popoverBody: NPopoverBody,
       animated: animatedRef,
@@ -200,6 +203,7 @@ export default defineComponent({
       }),
       rawNode: rawNodeRef,
       hasSubmenu: hasSubmenuRef,
+      hasSuffix: hasSuffixRef,
       pending: useMemo(() => {
         const { value: pendingKeyPath } = pendingKeyPathRef
         const { key } = props.tmNode
@@ -239,7 +243,7 @@ export default defineComponent({
       mergedShowSubmenu,
       clsPrefix,
       siblingHasIcon,
-      siblingHasSubmenu,
+      siblingHasSuffix,
       renderLabel,
       renderIcon,
       renderOption,
@@ -313,14 +317,19 @@ export default defineComponent({
               data-dropdown-option
               class={[
                 `${clsPrefix}-dropdown-option-body__suffix`,
-                siblingHasSubmenu
-                && `${clsPrefix}-dropdown-option-body__suffix--has-submenu`
+                siblingHasSuffix
+                && `${clsPrefix}-dropdown-option-body__suffix--has-suffix`
               ]}
             >
-              {this.hasSubmenu ? (
+              {this.hasSubmenu || this.hasSuffix ? (
                 <NIcon>
                   {{
-                    default: () => <ChevronRightIcon />
+                    default: () =>
+                      rawNode.suffixIcon ? (
+                        render(rawNode.suffixIcon)
+                      ) : (
+                        <ChevronRightIcon />
+                      )
                   }}
                 </NIcon>
               ) : null}

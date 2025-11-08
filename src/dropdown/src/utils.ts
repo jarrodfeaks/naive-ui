@@ -10,6 +10,13 @@ export function isSubmenuNode(
   )
 }
 
+export function isSubmenuNodeOrHasSuffix(
+  rawNode: DropdownMixedOption,
+  childrenField: string
+): boolean {
+  return !!rawNode.suffixIcon || isSubmenuNode(rawNode, childrenField)
+}
+
 export function isGroupNode(rawNode: DropdownMixedOption): boolean {
   return rawNode.type === 'group'
 }

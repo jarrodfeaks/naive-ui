@@ -23,12 +23,12 @@ import {
   isDividerNode,
   isGroupNode,
   isRenderNode,
-  isSubmenuNode
+  isSubmenuNodeOrHasSuffix
 } from './utils'
 
 export interface NDropdownMenuInjection {
   showIconRef: Ref<boolean>
-  hasSubmenuRef: Ref<boolean>
+  showSuffixRef: Ref<boolean>
 }
 
 export default defineComponent({
@@ -69,16 +69,19 @@ export default defineComponent({
           return renderIcon ? renderIcon(rawNode) : rawNode.icon
         })
       }),
-      hasSubmenuRef: computed(() => {
+      showSuffixRef: computed(() => {
         const { value: childrenField } = childrenFieldRef
         return props.tmNodes.some((tmNode) => {
           if (tmNode.isGroup) {
-            return tmNode.children?.some(({ rawNode: rawChild }) =>
-              isSubmenuNode(rawChild, childrenField)
+            return (
+              tmNode.rawNode.suffixIcon
+              || tmNode.children?.some(({ rawNode: rawChild }) =>
+                isSubmenuNodeOrHasSuffix(rawChild, childrenField)
+              )
             )
           }
           const { rawNode } = tmNode
-          return isSubmenuNode(rawNode, childrenField)
+          return isSubmenuNodeOrHasSuffix(rawNode, childrenField)
         })
       })
     })
