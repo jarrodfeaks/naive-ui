@@ -1,1 +1,1 @@
-export default '2.43.1-patch.0'
+export default '2.43.1-patch.1'

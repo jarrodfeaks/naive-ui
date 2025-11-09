@@ -1,6 +1,6 @@
 {
   "name": "@jarrodfeaks/naive-ui",
-  "version": "2.43.1-patch.0",
+  "version": "2.43.1-patch.1",
   "packageManager": "pnpm@9.5.0",
   "description": "Fork of Naive UI with some small additions",
   "author": "jarrodfeaks",
