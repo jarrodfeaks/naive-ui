@@ -1,6 +1,6 @@
 {
   "name": "@jarrodfeaks/naive-ui",
-  "version": "2.43.1-patch.1",
+  "version": "2.43.2-patch.0",
   "packageManager": "pnpm@9.5.0",
   "description": "Fork of Naive UI with some small additions",
   "author": "jarrodfeaks",
@@ -149,6 +149,9 @@
     "vue-tsc": "^3.0.7"
   },
   "pnpm": {
+    "overrides": {
+      "cssstyle": "5.2.1"
+    },
     "peerDependencyRules": {
       "ignoreMissing": [
         "@babel/core",
