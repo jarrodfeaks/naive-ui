@@ -89,12 +89,12 @@ export default defineComponent({
       }
 
       const sid = `r${id}`
-      if (!registeredImageUrlMap.value.has(`r${sid}`)) {
+      if (!registeredImageUrlMap.value.has(sid)) {
         registeredImageUrlMap.value.set(sid, url)
       }
 
       return function unregisterPreviewUrl() {
-        if (!registeredImageUrlMap.value.has(sid)) {
+        if (registeredImageUrlMap.value.has(sid)) {
           registeredImageUrlMap.value.delete(sid)
         }
       }
